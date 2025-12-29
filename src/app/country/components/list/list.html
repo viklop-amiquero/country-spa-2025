@@ -10,18 +10,26 @@
                     <th>Nombre</th>
                     <th>Capital</th>
                     <th>Población</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <!-- row 1 -->
+                @for (country of countries(); track country.cca2;let index = $index) {
                 <tr class="bg-base-200">
-                    <th>1</th>
-                    <td>Cy Ganderton</td>
-                    <td>Quality Control Specialist</td>
-                    <td>Blue</td>
-                    <td>Quality Control Specialist</td>
-                    <td>Blue</td>
+                    <th>{{ $index + 1 }}</th>
+                    <td>{{ country.flag }}</td>
+                    <td>
+                        <img [src]="country.flagSvg" [alt]="country.name" class="w-10" />
+                    </td>
+                    <td>{{ country.name }}</td>
+                    <td>{{ country.capital }}</td>
+                    <td>{{ country.population }}</td>
+                    <td>
+                        <a href="" class="link-primary">Más información</a>
+                    </td>
                 </tr>
+                }
             </tbody>
         </table>
     </div>
