@@ -23,6 +23,7 @@ export class ByCapitalPage {
         this.isError.set(null);
 
         this.countryService.searchByCapital(query).subscribe((countries) => {
+            // console.log(countries[]);
             this.isLoading.set(false);
             this.countries.set(countries);
         });
