@@ -22,10 +22,17 @@ export class ByCapitalPage {
         this.isLoading.set(true);
         this.isError.set(null);
 
-        this.countryService.searchByCapital(query).subscribe((countries) => {
-            // console.log(countries[]);
-            this.isLoading.set(false);
-            this.countries.set(countries);
+        this.countryService.searchByCapital(query).subscribe({
+            next: (countries) => {
+                this.isLoading.set(false);
+                this.countries.set(countries);
+            },
+            error: (err) => {
+                console.log(err);
+                this.isLoading.set(false);
+                this.countries.set([]);
+                this.isError.set(err);
+            },
         });
     }
 }
