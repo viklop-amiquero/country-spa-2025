@@ -12,7 +12,9 @@ import { CountryService } from '../../services/country-service';
 })
 export class ByCapitalPage {
     countryService = inject(CountryService);
+
     query = signal('');
+
     countryResource = resource({
         params: () => ({ query: this.query() }),
         loader: async ({ params }) => {
