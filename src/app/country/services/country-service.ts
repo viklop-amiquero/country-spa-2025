@@ -29,7 +29,7 @@ export class CountryService {
             map(CountryMapper.mapRestCountryArrayToCountryArray),
             catchError((err) => {
                 console.log('error fetching', err);
-                return throwError(() => new Error(`No se pudo obtener país por ${query}`));
+                return throwError(() => new Error(`No se encontró país ${query}`));
             })
         );
     }
