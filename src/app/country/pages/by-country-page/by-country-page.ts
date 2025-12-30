@@ -14,7 +14,7 @@ export class ByCountryPage {
     countryService = inject(CountryService);
     query = signal('');
 
-    countryResorce = rxResource({
+    countryResource = rxResource({
         params: () => ({
             query: this.query(),
         }),
