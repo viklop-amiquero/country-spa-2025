@@ -32,12 +32,12 @@ export class CountryService {
         );
     }
 
-    searchCountryByAlphaCode(code: string): Observable<Country[]> {
+    searchCountryByAlphaCode(code: string) {
         return this._http.get<RESTCountry[]>(`${this._api}/alpha/${code}`).pipe(
             map(CountryMapper.mapRestCountryArrayToCountryArray),
-            // delay(3000),
+            map((resp) => resp.at(0)),
             catchError((err) => {
-                return throwError(() => new Error(`No se encontró país ${code}`));
+                return throwError(() => new Error(`No se encontró un país con el código: ${code}`));
             })
         );
     }
