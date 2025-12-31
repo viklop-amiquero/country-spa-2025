@@ -10,5 +10,5 @@
 
 <!-- . -->
 @if (countryResource.hasValue()) {
-<country-information-page />
+<country-information-page [country]="countryResource.value()" />
 }
